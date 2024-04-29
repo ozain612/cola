@@ -20,6 +20,9 @@ class CRDSetup:
         self.installDesktopEnvironment()
         self.changewall()
         self.installGoogleChrome()
+        self.installsunshine()
+        self.installsnapd()
+        self.installngrok()
         self.installTelegram()
         self.installQbit()
         self.finish(user)
@@ -49,11 +52,21 @@ class CRDSetup:
         print("Google Chrome Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
     @staticmethod
-    def installGoogleChrome():
+    def installsunshine():
         subprocess.run(["wget", "https://github.com/LizardByte/Sunshine/releases/download/v0.23.1/sunshine-debian-bookworm-arm64.deb"])
         subprocess.run(["dpkg", "--install", "sunshine-debian-bookworm-arm64.deb"])
         subprocess.run(['apt', 'install', '--assume-yes', '--fix-broken'])
-        print("Google Chrome Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print("sunshine Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+    @staticmethod
+    def installsnapd():
+        subprocess.run(["apt", "install", "snapd"])
+        print("snapd Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+    @staticmethod
+    def installngrok():
+        subprocess.run(["snap", "install", "ngrok"])
+        print("ngrok Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     
     @staticmethod
     def installTelegram():
